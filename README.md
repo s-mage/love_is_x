@@ -1,21 +1,24 @@
-# LoveIsX
+Love is...
+=======
 
-**TODO: Add description**
+... a Markov chains generator. Now you can define what is love.
 
-## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `love_is_x` to your list of dependencies in `mix.exs`:
+A Markov chain?
+-----------
+
+A Markov chain (discrete-time Markov chain or DTMC) named after Andrey Markov, is a mathematical system that undergoes transitions from one state to another, among a finite or countable number of possible states. (c) [Wikipedia](http://en.wikipedia.org/wiki/Markov_chain)
+
+
+Usage
+-----
 
 ```elixir
-def deps do
-  [
-    {:love_is_x, "~> 0.1.0"}
-  ]
-end
+tree = LoveIsX.setup("data")
+
+LoveIsX.Generator.generate_sentence(tree)
+#= ""is a lazy morning sleep-in."
+
+LoveIsX.Generator.generate_sentence(tree, 3, "Love is")
+#= "Love is just what you need to start off the new year."
 ```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/love_is_x](https://hexdocs.pm/love_is_x).
-
