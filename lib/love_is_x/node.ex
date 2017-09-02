@@ -25,6 +25,11 @@ defmodule LoveIsX.Node do
     agent
   end
 
+  def shutdown(node) do
+    Enum.map(children(node), &Agent.stop(&1))
+    Agent.stop(node)
+  end
+
   def add_sentence(tree_agent, sentence), do: add_sentence(tree_agent, sentence, 3)
   def add_sentence(tree_agent, sentence, ngram_size) do
     sentence
@@ -67,6 +72,10 @@ defmodule LoveIsX.Node do
 
   def el(node, prob) when is_float(prob) do
     Enum.find(node.children, &(probability(&1) > prob))
+  end
+
+  def children(agent) do
+    Agent.get(agent, &(&1.children))
   end
 
   def val(agent) do

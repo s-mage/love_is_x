@@ -16,9 +16,12 @@ Usage
 ```elixir
 tree = LoveIsX.setup("data")
 
-LoveIsX.Generator.generate_sentence(tree)
-#= ""is a lazy morning sleep-in."
+LoveIsX.roll(tree)
+#= "woken with a kiss and a cup."
 
-LoveIsX.Generator.generate_sentence(tree, 3, "Love is")
-#= "Love is just what you need to start off the new year."
+LoveIsX.roll(tree, 2, "Love")
+#= "Love is that spark of his kiss to you."
+
+LoveIsX.teardown(tree)
+#= :ok
 ```
