@@ -1,7 +1,7 @@
 defmodule LoveIsX.Node do
   use Agent
 
-  @sentence_begin '*'
+  @sentence_begin "*"
   @enforce_keys [:value, :weight, :children]
 
   defstruct [:value, :weight, :probability, :children, :ngram_size]
@@ -32,8 +32,7 @@ defmodule LoveIsX.Node do
 
   def add_sentence(tree_agent, sentence), do: add_sentence(tree_agent, sentence, 3)
   def add_sentence(tree_agent, sentence, ngram_size) do
-    sentence
-      |> String.split(~r{\s})
+    [@sentence_begin | String.split(sentence, ~r{\s})]
       |> cons(ngram_size)
       |> Enum.map(&add_ngram(&1, tree_agent))
   end

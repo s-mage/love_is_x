@@ -9,7 +9,7 @@ defmodule LoveIsX do
     tree = LoveIsX.setup("data")
 
     LoveIsX.roll(tree)
-    #= "woken with a kiss and a cup."
+    #= "Love is holding on to every precious moment."
 
     LoveIsX.roll(tree, 2, "Love")
     #= "Love is that spark of his kiss to you."
